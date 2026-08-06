@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Lead {
+  id         String   @id @default(uuid())
+  name       String
+  phone      String
+  age        Int?
+  courseName String
+  branchName String
+  status     String   @default("Yangi") // Yangi, Aloqada, Yozildi, Bekor qilindi
+  notes      String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Course {
+  id          String   @id @default(uuid())
+  slug        String   @unique
+  title       String
+  category    String   // Dasturlash, Chet tillari, Dizayn, IT-Savatxonlik
+  description String
+  price       String
+  duration    String
+  level       String   @default("Boshlang'ich va O'rta")
+  image       String
+  curriculum  String   // JSON stringified list of modules
+  featured    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Teacher {
+  id         String   @id @default(uuid())
+  name       String
+  role       String
+  specialty  String
+  experience String
+  image      String
+  bio        String
+  rating     Float    @default(4.9)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Branch {
+  id          String   @id @default(uuid())
+  name        String
+  address     String
+  phone       String
+  hours       String
+  mapLink     String
+  mapEmbedUrl String?
+  image       String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Post {
+  id        String   @id @default(uuid())
+  title     String
+  slug      String   @unique
+  excerpt   String
+  content   String
+  image     String
+  date      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
