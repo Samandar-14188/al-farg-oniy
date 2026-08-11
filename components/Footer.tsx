@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { GraduationCap, MapPin, Phone, Mail, Send, Instagram, Youtube, ArrowUpRight } from 'lucide-react';
+import Image from 'next/image';
+import { MapPin, Phone, Mail, Send, Instagram, Youtube, ArrowUpRight } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -10,16 +11,13 @@ export default function Footer() {
           {/* Column 1: Brand & Tagline */}
           <div className="lg:col-span-2 space-y-5">
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-black shadow-glow">
-                <GraduationCap className="w-5 h-5" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-lg font-black tracking-tight text-white">
-                  Al-Farg’oniy
-                </span>
-                <span className="text-[10px] uppercase font-bold tracking-widest text-emerald-400 -mt-1">
-                  Academy
-                </span>
+              <div className="relative h-10 w-48 transition-transform group-hover:scale-105">
+                <Image
+                  src="/logo.png"
+                  alt="Al-Farg’oniy Education"
+                  fill
+                  className="object-contain object-left brightness-0 invert"
+                />
               </div>
             </Link>
 

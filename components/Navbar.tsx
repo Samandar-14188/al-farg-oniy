@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { GraduationCap, Phone, Menu, X, Sparkles, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
+import { Phone, Menu, X, Sparkles, ChevronRight } from 'lucide-react';
 import LeadModal from './LeadModal';
 
 export default function Navbar() {
@@ -27,17 +28,15 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-20">
             
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-black shadow-glow group-hover:scale-105 transition-transform">
-                <GraduationCap className="w-6 h-6" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-lg font-black tracking-tight text-white group-hover:text-emerald-400 transition-colors">
-                  Al-Farg’oniy
-                </span>
-                <span className="text-[10px] uppercase font-bold tracking-widest text-emerald-400 -mt-1">
-                  Academy
-                </span>
+            <Link href="/" className="flex items-center gap-2 group">
+              <div className="relative h-9 sm:h-11 w-44 sm:w-52 transition-transform group-hover:scale-105">
+                <Image
+                  src="/logo.png"
+                  alt="Al-Farg’oniy Education"
+                  fill
+                  priority
+                  className="object-contain object-left brightness-0 invert"
+                />
               </div>
             </Link>
 
